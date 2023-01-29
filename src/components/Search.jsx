@@ -6,20 +6,20 @@ import { workoutOptions, fetchData } from '../utils/fetchData.js'
 import HorizontalScrollBar from './HorizontalScrollBar.jsx'
 
 
-const Search = () => {
+const Search = (setSearchResults, bodyPart, setBodyPart) => {
     const [search, setSearch] = useState('')
-    const [searchResults, setSearchResults] = useState([])
+    
     const [bodyParts, setBodyParts] = useState([])
 
     useEffect(() => {
-        const getWorkouts = async () => {
+        const getBodyParts = async () => {
             const bodyPartData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', workoutOptions)
             // const equipmentData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/equipmentList', workoutOptions)
 
             setBodyParts(['all', ...bodyPartData])
             // setEquipment(['all', ...equipmentData])
         }
-        //getWorkouts()
+        getBodyParts()
     }, [])
 
     const handleSearch = async () => {
@@ -34,7 +34,7 @@ const Search = () => {
                 workout.bodyPart.toLowerCase().includes(search))
             
             setSearchResults(searchedWorkouts)
-            console.log(searchResults)
+            console.log(searchedWorkouts)
             setSearch('')
         }
     }
@@ -60,7 +60,7 @@ const Search = () => {
                     </Button>
             </Box>
             <Box sx={{ position: 'relative', width: '100%', p: '20px'}}>
-                <HorizontalScrollBar data={bodyParts} />
+                <HorizontalScrollBar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
             </Box>
 
         </Stack>
