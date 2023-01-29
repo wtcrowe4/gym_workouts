@@ -63,7 +63,7 @@ body {
   
   }
   
-  .exercise-card {
+  .workout-card {
     width: 400px;
     height: 445px;
     background: #fff;
@@ -77,8 +77,13 @@ body {
     transform: scale(1, 1);
     transition: 0.3s all ease-in-out;
   }
-  
-  .exercise-card img {
+  .workout-btn:hover {
+    color: red !important;
+    border: 1px solid #FF2625 !important;
+    background-color: beige !important;
+  }
+
+  .workout-card img {
     height: 326px;
   }
   
@@ -88,17 +93,18 @@ body {
    
   }
   
-  .exercise-card:hover,
+  .workout-card:hover,
   .bodyPart-card:hover {
     transform: scale(1.1, 1.1);
   }
   
   .search-btn:hover {
-    color: #FF2625 !important;
+    color: red !important;
     border: 1px solid #FF2625 !important;
+    background-color: beige !important;
   }
   
-  .exercise-video {
+  .workout-video {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -115,7 +121,8 @@ body {
   
   
     .react-horizontal-scrolling-menu--scroll-container {
-      width: 500px;
+      width: 80%;
+      margin: auto;
     }
   
     .left-arrow,
@@ -127,11 +134,11 @@ body {
       display: none;
     }
   
-    .exercise-card {
+    .workout-card {
       width: 320px;
     }
   
-    .exercise-video {
+    .workout-video {
       width: 320px;
       height: 300px;
     }
@@ -139,7 +146,7 @@ body {
   }
   
   @media screen and (max-width:400px) {
-    .exercise-card {
+    .workout-card {
       width: 280px;
     }
   }

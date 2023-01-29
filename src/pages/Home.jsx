@@ -9,13 +9,21 @@ import Workouts from '../components/Workouts'
 
 const Home = () => {
     const [bodyPart, setBodyPart] = useState('all')
-    const [searchResults, setSearchResults] = useState([])
+    const [workouts, setWorkouts] = useState([])
 
     return (
         <Box>
             <Hero />
-            <Search setSearchResults={setSearchResults} bodyPart={bodyPart} setBodyPart={setBodyPart} />
-            <Workouts setSearchResults={setSearchResults} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            <Search 
+                workouts={workouts}
+                setWorkouts={setWorkouts} 
+                bodyPart={bodyPart} 
+                setBodyPart={setBodyPart} />
+            <Workouts 
+                workouts={workouts}
+                setWorkouts={setWorkouts} 
+                bodyPart={bodyPart} 
+                setBodyPart={setBodyPart} />
         </Box>
     )
 }

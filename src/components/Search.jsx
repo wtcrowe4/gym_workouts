@@ -6,9 +6,8 @@ import { workoutOptions, fetchData } from '../utils/fetchData.js'
 import HorizontalScrollBar from './HorizontalScrollBar.jsx'
 
 
-const Search = (setSearchResults, bodyPart, setBodyPart) => {
+const Search = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
     const [search, setSearch] = useState('')
-    
     const [bodyParts, setBodyParts] = useState([])
 
     useEffect(() => {
@@ -33,7 +32,7 @@ const Search = (setSearchResults, bodyPart, setBodyPart) => {
                 workout.equipment.toLowerCase().includes(search) ||
                 workout.bodyPart.toLowerCase().includes(search))
             
-            setSearchResults(searchedWorkouts)
+            setWorkouts(searchedWorkouts)
             console.log(searchedWorkouts)
             setSearch('')
         }
@@ -55,7 +54,8 @@ const Search = (setSearchResults, bodyPart, setBodyPart) => {
                     width: { lg: '10rem', xs: '100%' }, mt: { lg: '0', xs: '1rem' }, 
                     backgroundColor:'#FF2625', color:'white', height:'50px', borderRadius:'10px', fontSize:'20px', fontWeight:'600' }} 
                     variant="contained"
-                    onClick={handleSearch}>
+                    onClick={handleSearch}
+                    className='search-btn'>
                         Search
                     </Button>
             </Box>
