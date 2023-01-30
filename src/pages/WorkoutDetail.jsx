@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Box, Typography } from '@mui/material'
 
-import { fetchData, workoutOptions } from '../utils/fetchData.js'
+import { fetchData, videoOptions, workoutOptions } from '../utils/fetchData.js'
 
 import Detail from '../components/Detail.jsx'
 import WorkoutVideos from '../components/WorkoutVideos.jsx'
@@ -18,12 +18,15 @@ const WorkoutDetail = () => {
     useEffect(() => {
         const getWorkoutDetails = async () => {
             const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com'
-            const youtubeUrl = 'https://youtube-search-and-download.p.rapidapi.com'
+            const youTubeUrl = 'https://youtube-search-results.p.rapidapi.com/youtube-search/'
 
             const workoutDetailsData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, workoutOptions)
-            //youtube
+            
+            const workoutVideosData = await fetchData(`${youTubeUrl}?q=${workoutDetailsData.name}`, videoOptions)
+            console.log(workoutVideosData)
 
             setWorkoutDetails(workoutDetailsData)
+            setWorkoutVideos(workoutVideosData)
         }
         getWorkoutDetails()
     }, [id])
@@ -31,7 +34,7 @@ const WorkoutDetail = () => {
    return (
         <Box>
             <Detail workoutDetails={workoutDetails} />
-            <WorkoutVideos workoutVideos={workoutVideos}/>
+            <WorkoutVideos workoutVideos={workoutVideos} name={workoutDetails.name}/>
             <SimilarWorkouts similarWorkouts={similarWorkouts}/>
         </Box>
    )
