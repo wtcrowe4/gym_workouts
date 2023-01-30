@@ -14,6 +14,7 @@ const WorkoutDetail = () => {
     const [workoutDetails, setWorkoutDetails] = useState({})
     const [workoutVideos, setWorkoutVideos] = useState([])
     const [similarWorkouts, setSimilarWorkouts] = useState([])
+    const [sameEquipmentWorkouts, setSameEquipmentWorkouts] = useState([])
  
     useEffect(() => {
         const getWorkoutDetails = async () => {
@@ -21,21 +22,33 @@ const WorkoutDetail = () => {
             const youTubeUrl = 'https://youtube-search-results.p.rapidapi.com/youtube-search/'
 
             const workoutDetailsData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, workoutOptions)
+            setWorkoutDetails(workoutDetailsData)
             
             const workoutVideosData = await fetchData(`${youTubeUrl}?q=${workoutDetailsData.name}`, videoOptions)
-            console.log(workoutVideosData)
-
-            setWorkoutDetails(workoutDetailsData)
             setWorkoutVideos(workoutVideosData)
+            
+            const targetMuscle = workoutDetailsData.target
+            const targetMuscleData = await fetchData(`${exerciseDbUrl}/exercises/target/${targetMuscle}`, workoutOptions)
+            setSimilarWorkouts(targetMuscleData)
+            
+            const equipment = workoutDetailsData.equipment
+            const sameEquipmentData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${equipment}`, workoutOptions)
+            setSameEquipmentWorkouts(sameEquipmentData)
+            
+            
+
         }
         getWorkoutDetails()
     }, [id])
 
    return (
         <Box>
+            <Typography variant='h2' sx={{textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold', color: 'black', textShadow: '2px 2px red'}} mt='5rem' >
+                Workout Details
+            </Typography>
             <Detail workoutDetails={workoutDetails} />
             <WorkoutVideos workoutVideos={workoutVideos} name={workoutDetails.name}/>
-            <SimilarWorkouts similarWorkouts={similarWorkouts}/>
+            <SimilarWorkouts similarWorkouts={similarWorkouts} sameEquipmentWorkouts={sameEquipmentWorkouts}/>
         </Box>
    )
 }

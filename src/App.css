@@ -110,13 +110,12 @@ body {
     background-color: beige !important;
   }
   
-  .workout-video {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 387px;
-    height: 381px;
+ .video-iframe {
+    transition: all 0.5s ease-in-out;
+ }
+  .video-title-link {
     text-decoration: none;
+    
   }
   
   @media screen and (max-width:1200px) {

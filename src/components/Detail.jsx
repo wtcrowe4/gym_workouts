@@ -34,8 +34,7 @@ const Detail = ({ workoutDetails }) => {
                 <Stack sx={{flexDirection: 'column', gap: '20px', alignItems: 'center'}}>
                     <Typography 
                         variant='h3' 
-                        sx={{color: 'red', fontWeight: 'bold', textTransform: 'uppercase', textShadow: '2px 2px black'}}
-                        >
+                        sx={{color: 'red', fontWeight: 'bold', textTransform: 'uppercase', textShadow: '2px 2px black', textAlign: 'center'}}>
                             {name}
                     </Typography>
                     {clickableDetails.map((detail) => {
