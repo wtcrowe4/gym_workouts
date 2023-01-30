@@ -7,7 +7,7 @@ const WorkoutCard = ({ workout }) => {
   return (
     <Link className='workout-card' to={`/workout/${workout.id}`}>
         <img src={workout.gifUrl} alt={workout.name} loading='lazy' />
-        <Stack direction='row'>
+        <Stack direction='row' spacing={'.5rem'}>
             <Button sx={{ backgroundColor:'#FF2625', color:'white', height:'50px', borderRadius:'10px', fontSize:'20px', fontWeight:'600' }} 
                 className='workout-btn'>
                     {workout.bodyPart}
@@ -17,7 +17,7 @@ const WorkoutCard = ({ workout }) => {
                     {workout.target}
             </Button>
         </Stack>
-        <Typography fontWeight={600} sx={{ fontSize: { lg: '2rem', xs: '1rem'}}} mb='1rem' textAlign='center'>{workout.name}</Typography>
+        <Typography fontWeight={600} color='red' sx={{ fontSize: { lg: '2rem', xs: '1rem'}, textTransform: 'uppercase'}} mb='1rem' textAlign='center'>{workout.name}</Typography>
 
     </Link>
   )

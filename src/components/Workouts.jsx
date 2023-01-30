@@ -6,7 +6,7 @@ import { workoutOptions, fetchData } from '../utils/fetchData.js'
 
 import WorkoutCard from './WorkoutCard.jsx'
 
-const Workouts = ({ workouts, setWorkoutss, bodyPart, setBodyPart }) => {
+const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
   
     const [currentPage, setCurrentPage] = useState(1)
     const [workoutsPerPage] = useState(10)
@@ -21,8 +21,18 @@ const Workouts = ({ workouts, setWorkoutss, bodyPart, setBodyPart }) => {
     }
 
     useEffect(() => {
+        const getWorkouts = async () => {
+            let workoutData = []
+            if(bodyPart === 'all'){
+                workoutData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', workoutOptions)
+            } else {
+                workoutData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, workoutOptions)
+            }
+            setWorkouts(workoutData)
+        }
+        getWorkouts()
         
-    }, [])
+    }, [bodyPart])
 
   return (
     <Box 
@@ -40,7 +50,7 @@ const Workouts = ({ workouts, setWorkoutss, bodyPart, setBodyPart }) => {
         </Typography> 
         <Stack 
             direction={{ lg: 'row', xs: 'column' }} 
-            spacing={{ lg: '1rem', xs: '0' }} 
+            spacing={{ lg: '2rem', xs: '1rem' }} 
             sx={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
                 {currentWorkouts.map((workout) => (
                     <WorkoutCard key={workout.id} workout={workout} />
