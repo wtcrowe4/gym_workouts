@@ -46,11 +46,11 @@ const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
             mt: '1rem', 
             p: '20px' }}>
         <Typography variant='h3' mb='1rem'>
-            Showing {workouts.length} results for {workouts={bodyPart} ? bodyPart : 'all'}
+            Showing {workoutsPerPage} of {workouts.length} results for {workouts={bodyPart} ? bodyPart : 'all'}
         </Typography> 
         <Stack 
             direction={{ lg: 'row', xs: 'column' }} 
-            spacing={{ lg: '3rem', xs: '2rem' }} 
+            spacing={{ lg: '2rem', xs: '1rem' }} 
             sx={{ width: '100%', justifyContent: 'center', alignItems: 'center', flexWrap:'wrap' }}>
                 {currentWorkouts.map((workout) => (
                     <WorkoutCard key={workout.id} workout={workout} />

@@ -75,7 +75,7 @@ body {
     width: 400px;
     height: 460px;
     background: white;
-    margin: 20px;
+    margin: 10px;
     margin-bottom: 50px;
     border-top: 4px solid #FF2625;
     border: 2px solid gray;
@@ -88,6 +88,11 @@ body {
     transform: scale(1, 1);
     transition: 0.3s all ease-in-out;
   }
+
+  .workout-btn {
+    padding: 5px;
+  }
+
   .workout-btn:hover {
     color: red !important;
     border: 1px solid #FF2625 !important;
