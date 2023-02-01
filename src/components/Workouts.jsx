@@ -17,7 +17,7 @@ const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
 
     const paginate = (e, vaule) => {
         setCurrentPage(vaule)
-        window.scrollTo({top: 1800, behavior: 'smooth'})
+        window.scrollTo({top: 1400, behavior: 'smooth'})
     }
 
     useEffect(() => {

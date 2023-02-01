@@ -15,10 +15,10 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
              border:'1px solid gray' }}
         onClick={()=> {
             setBodyPart(item)
-            window.scrollTo({top:1800, left:100, behavior:'smooth'})
+            window.scrollTo({top:1400, left:100, behavior:'smooth'})
             }}> 
         <img src={Icon} alt='gym icon' style={{ width: '40px', height: '40px', marginTop:'1rem' }} /> 
-        <Typography fontWeight={600} sx={{ fontSize: { lg: '2rem', xs: '1rem'}}} mt='-1.5rem' mb='1rem' textAlign='center'>
+        <Typography fontWeight={600} sx={{ fontSize: { lg: '2rem', xs: '1rem'}, textTransform: 'capitalize' }} mt='-1.5rem' mb='1rem' textAlign='center'>
             {item}
         </Typography>
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 
 import BodyPart from './BodyPart.jsx'
@@ -11,8 +11,8 @@ import LeftArrowImg from '../assets/icons/left-arrow.png'
 const LeftArrow = () => {
     const { scrollPrev } = useContext(VisibilityContext)
     return (
-        <Typography onClick={()=>scrollPrev()} className='left-arrow'>
-            <img src={LeftArrowImg} alt='left arrow' />
+        <Typography className='left-arrow'>
+            <img src={LeftArrowImg} alt='left arrow' onClick={()=>scrollPrev()} />
         </Typography>
     )
 }
@@ -20,9 +20,9 @@ const LeftArrow = () => {
 const RightArrow = () => {
     const { scrollNext } = useContext(VisibilityContext)
     return (
-        <Typography onClick={()=>scrollNext()} className='right-arrow'>
+        <Button className='right-arrow' onClick={(e)=>scrollNext()}>
             <img src={RightArrowImg} alt='right arrow' />
-        </Typography>
+        </Button>
     )
 }
 
@@ -30,7 +30,7 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyPart }) => {
     return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} data={data} 
         style={{ overflowX: 'scroll', whiteSpace: 'wrap', width: '100%' }}>
-            {data.map((item, index) => (
+            {data.map((item) => (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '10px', margin: '40px 100px' }}
                     key={item.id || item}
                     itemID={item.id || item}
