@@ -11,8 +11,8 @@ import LeftArrowImg from '../assets/icons/left-arrow.png'
 const LeftArrow = () => {
     const { scrollPrev } = useContext(VisibilityContext)
     return (
-        <Typography className='left-arrow'>
-            <img src={LeftArrowImg} alt='left arrow' onClick={()=>scrollPrev()} />
+        <Typography className='left-arrow' onClick={()=>scrollPrev()}>
+            <img src={LeftArrowImg} alt='left arrow'  />
         </Typography>
     )
 }
@@ -20,16 +20,18 @@ const LeftArrow = () => {
 const RightArrow = () => {
     const { scrollNext } = useContext(VisibilityContext)
     return (
-        <Button className='right-arrow' onClick={(e)=>scrollNext()}>
+        <Typography className='right-arrow' onClick={()=>scrollNext()}
+            onMouseOver={()=>scrollNext()}
+        >
             <img src={RightArrowImg} alt='right arrow' />
-        </Button>
+        </Typography>
     )
 }
 
 const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyPart }) => {
     return (
-        <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} data={data} 
-        style={{ overflowX: 'scroll', whiteSpace: 'wrap', width: '100%' }}>
+        <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} data={data} className='scroll-menu'> 
+        
             {data.map((item) => (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '10px', margin: '40px 100px' }}
                     key={item.id || item}
