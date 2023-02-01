@@ -50,8 +50,8 @@ const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
         </Typography> 
         <Stack 
             direction={{ lg: 'row', xs: 'column' }} 
-            spacing={{ lg: '2rem', xs: '1rem' }} 
-            sx={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            spacing={{ lg: '3rem', xs: '2rem' }} 
+            sx={{ width: '100%', justifyContent: 'center', alignItems: 'center', flexWrap:'wrap' }}>
                 {currentWorkouts.map((workout) => (
                     <WorkoutCard key={workout.id} workout={workout} />
             ))}   

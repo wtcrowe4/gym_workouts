@@ -73,8 +73,10 @@ body {
   
   .workout-card {
     width: 400px;
-    height: 445px;
+    height: 460px;
     background: white;
+    margin: 20px;
+    margin-bottom: 50px;
     border-top: 4px solid #FF2625;
     border: 2px solid gray;
     border-bottom-left-radius: 20px;
@@ -94,7 +96,7 @@ body {
 
   .workout-card img {
     height: 326px;
-    ;
+    
   }
   
   .bodyPart-card {

@@ -8,6 +8,7 @@ const WorkoutCard = ({ workout }) => {
   
 
   return (
+    <div className='workout-card-wrapper'>
     <Link className='workout-card' to={`/workout/${workout.id}`}>
         <img src={workout.gifUrl} alt={workout.name} loading='lazy' />
         <Stack direction='row' spacing={'.5rem'}>
@@ -20,9 +21,10 @@ const WorkoutCard = ({ workout }) => {
                     {workout.target}
             </Button>
         </Stack>
-        <Typography fontWeight={600} color='red' sx={{ fontSize: { lg: '2rem', xs: '1rem'}, textTransform: 'uppercase'}} mb='1rem' textAlign='center'>{workout.name}</Typography>
+        <Typography color='red' sx={{ fontSize: { lg: '1.5rem', xs: '.5rem'}, textTransform: 'uppercase'}} mb='1rem' textAlign='center'>{workout.name}</Typography>
 
     </Link>
+    </div>
   )
 }
 
