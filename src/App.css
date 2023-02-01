@@ -129,6 +129,12 @@ body {
       width: 80%;
       margin: auto;
     }
+    
+    .react-horizontal-scrolling-menu--item {
+      margin: auto;
+      height: 40rem;
+      padding-top: 200px;
+    }
   
     .left-arrow,
     .right-arrow {

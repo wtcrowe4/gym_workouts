@@ -5,7 +5,7 @@ import Logo from '../assets/icons/dumbell.jpg'
 
 const Footer = () => {
   return (
-    <Box sx={{backgroundColor: 'black', color: 'white', p: '10px', mt:'80x', width: '100vw'}}>
+    <Box sx={{backgroundColor: 'black', color: 'white', p: '10px', width: '100vw', mt: '200px'}}>
       <Stack gap='20px' sx={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
         <img src={Logo} alt='logo' width='50px' height='50px' loading='lazy' />
         <Typography variant='h6' sx={{textAlign: 'right'}}>
