@@ -10,7 +10,7 @@ const SimilarWorkouts = ({ similarWorkouts, sameEquipmentWorkouts}) => {
         <Typography variant='h4' mb='1rem' mt='3rem' sx={{textShadow:'1px 1px red'}} >
             Similar Workouts
         </Typography>
-        <Stack direction='row' spacing={{ lg: '2rem', xs: '1rem' }} sx={{ height:'20rem', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+        <Stack direction='row' spacing={{ lg: '2rem', xs: '1rem' }} sx={{ height:'30rem', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
             {similarWorkouts.length ?
                 <HorizontalScrollBar data={similarWorkouts} /> :
                 <Loader />
