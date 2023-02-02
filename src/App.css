@@ -50,6 +50,26 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    
+  }
+
+    
+  .react-horizontal-scrolling-menu--scroll-container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .react-horizontal-scrolling-menu--item {
+    margin: auto;
+    height: 40rem;
+    padding-top: 200px;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    position: static !important;
+   
+
   }
   
   .detail-image {
@@ -137,30 +157,8 @@ body {
 
 
   
-    .react-horizontal-scrolling-menu--wrapper{
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-    
-    }
   
-    .react-horizontal-scrolling-menu--scroll-container {
-      width: 80%;
-      margin: auto;
-    }
-    
-    .react-horizontal-scrolling-menu--item {
-      margin: auto;
-      height: 40rem;
-      padding-top: 200px;
-    }
 
-    .left-arrow,
-    .right-arrow {
-      position: static !important;
-     
-
-    }
   
     .hero-banner-img {
       display: none;

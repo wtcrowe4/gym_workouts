@@ -33,13 +33,20 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyPart }) => {
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} data={data} className='scroll-menu'> 
         
             {data.map((item) => (
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '10px', margin: '40px 100px' }}
-                    key={item.id || item}
-                    itemID={item.id || item}
-                    title={item}>
-                        {isBodyPart ? <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} /> :
-                           <WorkoutCard workout={item} />}
-                    </Box>
+                <>
+                    {isBodyPart ? 
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '10px', margin: '40px 100px' }}
+                            key={item.id || item}
+                            itemID={item.id || item}
+                            title={item}>
+                                <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} /> 
+                        </Box> :
+                        <Box>
+                            {/* add styling and data here for workout cards on detail page */}
+                            <WorkoutCard workout={item} />
+                        </Box>
+                }
+                </>
             ))}
         </ScrollMenu>
 
