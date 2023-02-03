@@ -5,6 +5,7 @@ import { Box, Stack, Typography } from '@mui/material'
 import { workoutOptions, fetchData } from '../utils/fetchData.js'
 
 import WorkoutCard from './WorkoutCard.jsx'
+import Loader from './Loader.jsx'
 
 const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
   
@@ -33,8 +34,11 @@ const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
         getWorkouts()
         
     }, [bodyPart])
+//add useCallBack here to prevent infinite loop with setWorkouts
 
   return (
+    <>
+    { workouts.length ?
     <Box 
         id='workouts' 
         sx={{ 
@@ -70,6 +74,11 @@ const Workouts = ({ workouts, setWorkouts, bodyPart, setBodyPart }) => {
 
             
     </Box>
+    :
+    <Loader />
+            }
+    
+    </>
   )
 }
 

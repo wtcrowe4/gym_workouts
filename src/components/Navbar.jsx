@@ -12,7 +12,7 @@ const Navbar = () => {
                 width: '88px', height: '88px', margin: '0 20px'
             }}/>
         </Link>
-        <Stack direction='row' gap='40px' fontSize='24px' alignItems='flex-end'>
+        <Stack direction='row' gap='40px' fontSize='24px' paddingBottom='20px' alignItems='flex-end' marginRight='40px'>
             <Link to="/" style ={{ textDecoration: 'none', color: 'black', borderBottom: '2px solid red' }}>Home</Link>
             <a href="#workouts" style ={{ textDecoration: 'none', color: 'black', borderBottom: '2px solid red' }}>Workouts</a>
         </Stack>

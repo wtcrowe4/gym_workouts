@@ -17,7 +17,7 @@ const SimilarWorkouts = ({ similarWorkouts, sameEquipmentWorkouts}) => {
                 <Loader />
             }
         </Stack>
-        <Typography variant='h4' mb='1rem' mt='1rem' sx={{textShadow:'1px 1px red'}}>
+        <Typography variant='h4' mb='1rem' mt='12rem' sx={{textShadow:'1px 1px red'}}>
             Same Equipment Workouts
         </Typography>
         <Stack direction='row' spacing={{ lg: '2rem', xs: '1rem' }} sx={{ height:'20rem', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
